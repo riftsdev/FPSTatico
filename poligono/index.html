@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#151a14">
+<title>Polígono</title>
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud" hidden>
+  <div id="joy-zone"><div id="joy-base"><div id="joy-knob"></div></div></div>
+  <div id="look-zone"></div>
+  <div id="crosshair"></div>
+  <div id="fps"></div>
+  <button id="pause-btn" aria-label="Pausar">II</button>
+  <button class="btn" id="b-sprint" data-btn="sprint">Correr</button>
+  <button class="btn" id="b-slide" data-btn="slide">Slide</button>
+  <button class="btn" id="b-crouch" data-btn="crouch">Agachar</button>
+  <button class="btn" id="b-jump" data-btn="jump">Pular</button>
+</div>
+
+<div id="menu">
+  <section id="panel-main" class="panel">
+    <h1>Polígono</h1>
+    <p class="sub">FPS tático, versão 0.1</p>
+    <button class="row" disabled>Jogar<small>etapa 3</small></button>
+    <button class="row" data-action="start">Treinamento</button>
+    <button class="row" disabled>Armamento<small>etapa 2</small></button>
+    <button class="row" disabled>Personalização<small>etapa 4</small></button>
+    <button class="row" data-panel="panel-settings">Configurações</button>
+    <button class="row" disabled>Perfil<small>etapa 5</small></button>
+    <button class="row" data-panel="panel-credits">Créditos</button>
+  </section>
+
+  <section id="panel-settings" class="panel" hidden>
+    <h2>Configurações</h2>
+    <label><span>Sensibilidade horizontal</span><output></output><input type="range" data-set="sensX" min="0.2" max="3" step="0.1"></label>
+    <label><span>Sensibilidade vertical</span><output></output><input type="range" data-set="sensY" min="0.2" max="3" step="0.1"></label>
+    <label><span>Campo de visão</span><output></output><input type="range" data-set="fov" min="60" max="100" step="1"></label>
+    <label><span>Escala de renderização</span><output></output><input type="range" data-set="renderScale" min="0.5" max="1.25" step="0.05"></label>
+    <label><span>Inverter eixo vertical</span><input type="checkbox" data-set="invertY"></label>
+    <label><span>Sombras</span><input type="checkbox" data-set="shadows"></label>
+    <label><span>Mostrar FPS</span><input type="checkbox" data-set="showFps"></label>
+    <button class="row" data-action="reset">Restaurar padrão</button>
+    <button class="row" data-action="back">Voltar</button>
+  </section>
+
+  <section id="panel-credits" class="panel" hidden>
+    <h2>Créditos</h2>
+    <p>Motor 3D: Three.js (licença MIT).</p>
+    <p>Mapa, texturas e geometria desta versão são gerados por código. Nenhum asset externo é usado ainda.</p>
+    <button class="row" data-action="back">Voltar</button>
+  </section>
+</div>
+
+<div id="pause" hidden>
+  <div class="panel">
+    <h2>Pausado</h2>
+    <button class="row" data-action="resume">Continuar</button>
+    <button class="row" data-action="quit">Sair para o menu</button>
+  </div>
+</div>
+
+<div id="rotate">Gire o aparelho para a horizontal para jogar.</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
